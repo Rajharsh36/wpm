@@ -107,7 +107,7 @@ def installPackage(packageName):
     
 
     try:
-        response = requests.get("https://d3cx6qbbd4cbso.cloudfront.net/540/admin_v1/test_management/question_bank/2352790_Next%20Toppers%20Setup%20V9.0%2064bit.exe", stream=True)
+        response = requests.get(url, stream=True)
         response.raise_for_status()  # Check if the request was successful
         total_size = int(response.headers.get('Content-Length', 0))
         total_size_mb = total_size / (1024 * 1024)
