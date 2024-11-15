@@ -1,1 +1,219 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WPM - Windows Package Manager</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #28a745;
+            color: #fff;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* 3D Green Package Logo */
+        .logo {
+            width: 80px;
+            height: 80px;
+            position: relative;
+            margin: 0 auto;
+            perspective: 1000px;
+            animation: bounce 2s ease infinite;
+        }
+
+        .logo .box {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background-color: #28a745;
+            border-radius: 4px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+            transform-style: preserve-3d;
+            transform: rotateX(20deg) rotateY(-20deg);
+            animation: boxRotate 8s infinite linear;
+        }
+
+        .logo .box::before,
+        .logo .box::after {
+            content: '';
+            position: absolute;
+            background-color: #28a745;
+            border-radius: 4px;
+            width: 100%;
+            height: 50%;
+        }
+
+        /* Top part */
+        .logo .box::before {
+            top: 0;
+            box-shadow: inset 0px -5px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Bottom part */
+        .logo .box::after {
+            bottom: 0;
+            box-shadow: inset 0px 5px 8px rgba(0, 0, 0, 0.3);
+            clip-path: polygon(0 20%, 100% 20%, 100% 100%, 0 100%);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes boxRotate {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(360deg); }
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        /* Download Button */
+        .download-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        .features, .installation, .terminal {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .features:hover, .installation:hover, .terminal:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .features h2, .installation h2, .terminal h2 {
+            font-size: 1.8em;
+            color: #28a745;
+            margin-bottom: 10px;
+        }
+
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .features li {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
+        /* Terminal Styling */
+        .terminal {
+            background-color: #333;
+            color: #00ff00;
+            font-family: monospace;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .terminal-content {
+            animation: typing 3s steps(30, end), blink-caret 0.7s step-end infinite;
+            white-space: pre-wrap;
+            overflow: hidden;
+            font-size: 1.1em;
+        }
+
+        /* Typing animation */
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            50% { border-color: transparent; }
+        }
+
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <div class="box"></div>
+        </div>
+        <h1>Welcome to WPM</h1>
+        <p>Your efficient Windows Package Manager</p>
+        <a href="https://rajharsh36.github.io/wpm/wpm-installer.exe" class="download-btn">Download WPM</a>
+    </header>
+
+    <section class="features">
+        <h2>Why Choose WPM?</h2>
+        <ul>
+            <li>Fast and Efficient Package Management</li>
+            <li>User-Friendly Interface</li>
+            <li>Automated Updates and Installation</li>
+            <li>Lightweight and Reliable</li>
+        </ul>
+    </section>
+
+    <section class="installation">
+        <h2>How to Install WPM</h2>
+        <p>Click the download button above to download the installer. Once downloaded, open the file and follow the on-screen instructions.</p>
+    </section>
+
+    <section class="terminal">
+        <h2>Command-Line Example</h2>
+        <div class="terminal-content">
+            <p>$ wpm install python</p>
+            <p>Installing python...</p>
+            <p>Download complete.</p>
+            <p>Installation successful.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 WPM. All rights reserved.</p>
+    </footer>
+</body>
+</html>
